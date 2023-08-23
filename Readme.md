@@ -16,3 +16,6 @@ REST services using serverless framework and dynamodb
 * Install node version 18.17.0
 * Install project dependencies using the **npm install** command
 * Create the .env file using the .env.example file as an example, adding the aws credentials with the necessary permissions to deploy the lambdas
+
+### Recommendations
+*If you want to change the credentials to access dynamo, make sure that the table to use is already created.
