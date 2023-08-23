@@ -1,0 +1,34 @@
+service: Prueba-Tecnica
+
+useDotenv: true
+
+provider:
+  name: aws 
+  runtime: nodejs18.x
+  timeout: 60
+  memorySize: 2048
+  environment: ${file(./config/environment.yaml):environment}
+
+functions:
+  getStarships:
+    handler: src/handlers/getStarships.handler
+    events:
+      - httpApi: GET /api/v1/starships
+  getUsers:
+    handler: src/handlers/getUsers.handler
+    events:
+      - httpApi: GET /api/v1/users
+  createUser:
+    handler: src/handlers/createUser.handler
+    events:
+      - httpApi: POST /api/v1/users
+
+plugins:
+## - serverless-plugin-typescript
+ - serverless-esbuild
+ - serverless-offline
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true

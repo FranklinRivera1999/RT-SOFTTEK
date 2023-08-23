@@ -1,0 +1,6 @@
+environment:
+  URL_SWAPI : 'https://swapi.py4e.com/api'
+  DYNAMO_ENDPOINT: 'https://dynamodb.us-east-1.amazonaws.com'
+  DYNAMO_REGION: 'us-east-1'
+  DYNAMO_ACCESS_KEY_ID: "AKIAWGGUBQVUJYCHMREO"
+  DYNAMO_SECRET_ACCESS_KEY: "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"
