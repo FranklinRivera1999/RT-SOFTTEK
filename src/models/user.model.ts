@@ -1,7 +1,7 @@
 import aws from "aws-sdk";
 import { DynamoDatabase } from "../database";
 import { v4 } from "uuid";
-import { ItemList } from "aws-sdk/clients/dynamodb";
+import { ItemList, DocumentClient } from "aws-sdk/clients/dynamodb";
 
 export type User = {
   nombre: string;
@@ -12,7 +12,7 @@ export type User = {
 export default class UserModel {
   private _dynamoConnection: DynamoDatabase;
   private readonly _tableName: string = "users";
-  private _client: aws.DynamoDB.DocumentClient;
+  private _client: DocumentClient;
   constructor() {
     this._dynamoConnection = new DynamoDatabase();
     this._client = this._dynamoConnection.getConnection();
