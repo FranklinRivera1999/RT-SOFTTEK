@@ -5,6 +5,7 @@ useDotenv: true
 provider:
   name: aws 
   runtime: nodejs18.x
+  timeout: 30
   memorySize: 2048
   environment: ${file(./config/environment.yaml):environment}
 
