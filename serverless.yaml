@@ -32,3 +32,5 @@ custom:
   esbuild:
     bundle: true
     minify: true
+    exclude: []
+  
