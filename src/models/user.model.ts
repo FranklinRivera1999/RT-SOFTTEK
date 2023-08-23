@@ -1,6 +1,7 @@
 import aws from "aws-sdk";
 import { DynamoDatabase } from "../database";
 import { v4 } from "uuid";
+import { ItemList } from "aws-sdk/clients/dynamodb";
 
 export type User = {
   nombre: string;
@@ -17,7 +18,7 @@ export default class UserModel {
     this._client = this._dynamoConnection.getConnection();
   }
 
-  async getAllUsers(): Promise<aws.DynamoDB.ItemList | undefined> {
+  async getAllUsers(): Promise<ItemList | undefined> {
     const response = await this._client
       .scan({ TableName: this._tableName })
       .promise();

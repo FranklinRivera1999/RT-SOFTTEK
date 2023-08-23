@@ -4,12 +4,12 @@ import {
   DYNAMO_REGION,
   DYNAMO_SECRET_ACCESS_KEY,
 } from "../env";
-import aws from "aws-sdk";
+import { DocumentClient } from "aws-sdk/clients/dynamodb";
 export default class DynamoDatabase {
   constructor() {}
 
-  getConnection(): aws.DynamoDB.DocumentClient {
-    return new aws.DynamoDB.DocumentClient({
+  getConnection(): DocumentClient {
+    return new DocumentClient({
       accessKeyId: DYNAMO_ACCESS_KEY_ID,
       secretAccessKey: DYNAMO_SECRET_ACCESS_KEY,
       endpoint: DYNAMO_ENDPOINT,
